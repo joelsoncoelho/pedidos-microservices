@@ -55,8 +55,8 @@ public class PedidoService {
             throw new EntityNotFoundException();
         }
 
-        pedido.setStatus(Status.PAGO);
-        pedidoRepository.atualizaStatus(Status.PAGO, pedido);
+        pedido.setStatus(dto.getStatus());
+        pedidoRepository.atualizaStatus(pedido.getStatus(), pedido);
         return modelMapper.map(pedido, PedidoDto.class);
     }
 
